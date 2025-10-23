@@ -1,4 +1,4 @@
-
+import random
 def create_card(rank:str,suite:str) -> dict:
     val_high_card = {"J":11,"Q":12,"K":13,"A":14}
     if rank.isdigit():
@@ -71,7 +71,17 @@ def create_deck() -> list[dict]:
                 deck.append(create_card("A", "D"))
     return deck
 
-# def shuffle(deck: list[dict]) -> list[dict]:
-#     return  []
-print(create_deck())
+def shuffle(deck: list[dict]) -> list[dict]:
+    original_deck = deck.copy()
+    shuffle_round = 999
+    while shuffle_round != 0:
+        index_1 = random.randint(0,51)
+        index_2 = random.randint(0, 51)
+        if index_2 == index_1:
+            continue
+        else:
+            deck[index_1],deck[index_2] = deck[index_2],deck[index_1]
+        shuffle_round -= 1
+    print(original_deck)
+    return deck
 
