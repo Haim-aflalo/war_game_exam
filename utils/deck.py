@@ -72,7 +72,6 @@ def create_deck() -> list[dict]:
     return deck
 
 def shuffle(deck: list[dict]) -> list[dict]:
-    original_deck = deck.copy()
     shuffle_round = 999
     while shuffle_round != 0:
         index_1 = random.randint(0,51)
@@ -82,6 +81,5 @@ def shuffle(deck: list[dict]) -> list[dict]:
         else:
             deck[index_1],deck[index_2] = deck[index_2],deck[index_1]
         shuffle_round -= 1
-    print(original_deck)
     return deck
 
